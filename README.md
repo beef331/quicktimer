@@ -1,5 +1,5 @@
-# UnityTimer
-Simple and easy to use Unity timer.
+# Quick Timer
+Simple and easy to use timer systemfor the Unity engine.
 
 ## How To Use
 Go to the Unity Package Manager. Cick the plus in the top left. Click add from git repository. Paste https://github.com/beef331/quicktimer.git .
