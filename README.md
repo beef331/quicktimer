@@ -2,7 +2,7 @@
 Simple and easy to use Unity timer.
 
 ## How To Use
-Go to the Unity Package Manager. Cick the plus in the top left. Click add from git repository. Paste "https://github.com/beef331/quicktimer.git".
+Go to the Unity Package Manager. Cick the plus in the top left. Click add from git repository. Paste https://github.com/beef331/quicktimer.git .
 
 Then in code:
 ```
