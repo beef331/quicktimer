@@ -11,18 +11,18 @@ public class TimerExample : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.A) && canSpam)
 		{
-            // Timer using callbacks
+			// Timer using callbacks
 			canSpam = false;
-			new Timer( .3f, ResetSpam);
+			new Timer(.3f, ResetSpam);
 		}
 
-        if (Input.GetKeyDown(KeyCode.S) && canSpam)
+		if (Input.GetKeyDown(KeyCode.S) && canSpam)
 		{
-            // Timer using async/await
+			// Timer using async/await
 			canSpam = false;
-            await Timer.Start(.3f);
-            ResetSpam();
-        }
+			await Timer.Start(.3f);
+			ResetSpam();
+		}
 	}
 
 	void ResetSpam()
