@@ -28,8 +28,7 @@ namespace QuickTimer
 
 				for (int i = timers.Count - 1; i >= 0; i--)
 				{
-					timers[i].TickTimer();
-					if (timers[i].Completed && timers[i].DeleteOnCompletion)
+					if (timers[i].TickTimer())
 					{
 						timers.RemoveAt(i);
 					}

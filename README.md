@@ -9,5 +9,5 @@ Then in code:
 using QuickTimer;
 
 //All that is required to make a event that waits .5 seconds;
-new Timer(.5f,true,()=>{Debug.Log("Hey that took .5 seconds")});
+new Timer(.5f,()=>{Debug.Log("Hey that took .5 seconds")});
 ```

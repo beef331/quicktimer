@@ -12,7 +12,7 @@ public class TimerExample : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.A) && canSpam)
 		{
 			canSpam = false;
-			new Timer( .3f, true, ResetSpam);
+			new Timer( .3f, ResetSpam);
 		}
 	}
 
