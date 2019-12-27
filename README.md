@@ -12,5 +12,5 @@ using QuickTimer;
 new Timer(.5f,()=>{Debug.Log("Hey that took .5 seconds")});
 
 //It also supports awaiting which is done similarly
-await Timer.Start(.5);
+await Timer.Start(.5f);
 ```
