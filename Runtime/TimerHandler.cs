@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
 
-namespace Beef.Timer
+namespace QuickTimer
 {
 	public static class TimerHandler
 	{

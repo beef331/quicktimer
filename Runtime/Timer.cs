@@ -1,9 +1,8 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Beef.Timer
+namespace QuickTimer
 {
-
 	public struct Timer
 	{
 		public float StartTime { get; private set; }
@@ -12,7 +11,7 @@ namespace Beef.Timer
 		public bool DeleteOnCompletion { get; private set; }
 		public bool Completed => Time.time - StartTime >= delay;
 
-		public Timer( float delay, bool deleteOnCompletion, Action onCompletion = null)
+		public Timer(float delay, bool deleteOnCompletion, Action onCompletion = null)
 		{
 			this.StartTime = Time.time;
 			this.delay = delay;
@@ -20,7 +19,7 @@ namespace Beef.Timer
 			this.onCompletion = onCompletion;
 			TimerHandler.AddTimer(this);
 		}
-		
+
 		public void TickTimer()
 		{
 			if (Completed)
