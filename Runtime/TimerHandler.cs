@@ -30,8 +30,8 @@ namespace QuickTimer
 				{
 					if (timers[i].TickTimer())
 					{
-                        timers[i].TokenSource?.Cancel();
-                        timers.RemoveAt(i);
+						timers[i].TokenSource?.Cancel();
+						timers.RemoveAt(i);
 					}
 				}
 				lastTickFrame = Time.frameCount;
