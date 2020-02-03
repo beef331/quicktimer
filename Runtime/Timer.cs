@@ -11,45 +11,53 @@ namespace QuickTimer
 		public CancellationTokenSource TokenSource { get; private set; }
 		private float delay;
 		event Action onCompletion;
-		public bool Completed => Time.time - StartTime >= delay;
 
-		public Timer(float delay, Action onCompletion = null) : this()
+		public bool Completed => Time.time - StartTime >= delay;
+		public float Progress => Time.time - StartTime;
+		public float PercentProgress => Mathf.Clamp01((Time.time-StartTime)/delay);
+
+		public Timer (float delay, Action onCompletion = null) : this ()
 		{
 			this.StartTime = Time.time;
 			this.delay = delay;
 			this.onCompletion = onCompletion;
 
-			TimerHandler.AddTimer(this);
+			TimerHandler.AddTimer (this);
 		}
 
 		/// <summary>
 		/// Initialises the timer for async use.
 		/// </summary>
-		public static Task Start(float delay)
+		public static Task Start (float delay)
 		{
-			Timer timer = new Timer(delay);
+			Timer timer = new Timer (delay);
 
-			timer.TokenSource = new CancellationTokenSource();
+			timer.TokenSource = new CancellationTokenSource ();
 			CancellationToken ct = timer.TokenSource.Token;
 
-			Task task = Task.Run(() =>
+			Task task = Task.Run (() =>
 			{
 				while (!ct.IsCancellationRequested) { }
 			}, timer.TokenSource.Token);
 
-			TimerHandler.AddTimer(timer);
+			//TimerHandler.AddTimer(timer);
 			return task;
 		}
 
-		public bool TickTimer()
+		public bool TickTimer ()
 		{
 			if (Completed)
 			{
-				this.onCompletion?.Invoke();
+				this.onCompletion?.Invoke ();
 				this.onCompletion = null;
 				return true;
 			}
 			return false;
+		}
+
+		public void Delete ()
+		{
+			TimerHandler.RemoveTimer(this);
 		}
 	}
 }
